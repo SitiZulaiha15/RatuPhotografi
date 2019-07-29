@@ -3,6 +3,7 @@
     <div class="blank">
         <h2>Data Member</h2>
         <a href="<?php echo site_url('Crud/m_list_id/0'); ?>" class="hvr-icon-float-away">Tambah Member Baru</a>
+        <a href="<?php echo site_url('Crud/m_list_excel'); ?>" class="btn btn-success">Cetak Excel <i class="fa fa-file-excel-o"></i></a>
         <div class="table-responsive">
             <table class="table table-hover" id="dataTable">
                 <thead>

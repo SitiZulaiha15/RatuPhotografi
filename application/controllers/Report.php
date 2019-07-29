@@ -30,6 +30,10 @@ class Report extends CI_Controller {
         $data['bb'] = $this->Report_m->stok_now_db();
         $this->load->view('report/stok', $data);
     }
+    function stok_now_excel() {
+        $data['bb'] = $this->Report_m->stok_now_db();
+        $this->load->view('report/stok_excel', $data);
+    }
 
     function kinerja_period() {
         $this->load->view('report/kinerja_period');

@@ -1,10 +1,19 @@
-<?php $this->load->view('./header'); ?>
+<?php
+$name = "Laporan Stok Bahan Baku per ".date("Y-m-d");
+
+header("Content-type: application/octet-stream");
+
+header("Content-Disposition: attachment; filename=$name.xls");
+
+header("Pragma: no-cache");
+
+header("Expires: 0");
+?>
 <div class="inner-block">
     <div class="blank">
         <h2>Data Stok Bahan Baku</h2>
-        <a href="<?php echo site_url('Report/stok_now_excel'); ?>" class="btn btn-success" style="margin-bottom: 20px">Cetak Excel <i class="fa fa-file-excel-o"></i></a>
         <div class="table-responsive">
-            <table class="table table-hover" id="dataTable">
+            <table class="table table-hover" border="1">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -32,4 +41,3 @@
         </div>
     </div>
 </div>
-<?php $this->load->view('./sidebar'); ?>

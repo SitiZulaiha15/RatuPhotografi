@@ -144,6 +144,10 @@ class Crud extends CI_Controller {
         $data['list'] = $this->Crud_m->select('member');
         $this->load->view('crud/m_list', $data);
     }
+    function m_list_excel() {
+        $data['list'] = $this->Crud_m->select('member');
+        $this->load->view('crud/m_list_excel', $data);
+    }
 
     function m_list_id($id) {
         $data['list'] = $this->Crud_m->select_id('member', 'id_member', $id);
