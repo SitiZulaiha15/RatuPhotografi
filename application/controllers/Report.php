@@ -11,18 +11,21 @@
  *
  * @author lauwba
  */
-class Report extends CI_Controller{
+class Report extends CI_Controller {
+
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('staf_ratu_id')) {
             redirect('Welcome/get_staf_bycookie');
         }
     }
+
     //put your code here
-    function limit_bb(){
-        $data['bb']=$this->Report_m->limit_bb_db();
+    function limit_bb() {
+        $data['bb'] = $this->Report_m->limit_bb_db();
         $this->load->view('report/stok', $data);
     }
+
     function stok_now() {
         $data['bb'] = $this->Report_m->stok_now_db();
         $this->load->view('report/stok', $data);
@@ -39,6 +42,7 @@ class Report extends CI_Controller{
         $data['end'] = $this->input->post('end');
         $this->load->view('report/kinerja', $data);
     }
+
     function kasir_pj() {
         $this->load->view('report/kasir_pj');
     }
@@ -51,6 +55,20 @@ class Report extends CI_Controller{
         $data['report'] = $this->Report_m->kasir_pj_report_db($start, $end);
         $data['kat'] = $this->Crud_m->select('grup');
         $this->load->view('report/kasir_pj_report', $data);
+    }
+
+    function kasir_pj_report_excel($start,$end) {
+//        $start = $this->input->post('start');
+//        $end = $this->input->post('end');
+        $data['start'] = $start;
+        $data['end'] = $end;
+        $data['report'] = $this->Report_m->kasir_pj_report_db($start, $end);
+        $data['kat'] = $this->Crud_m->select('grup');
+        $this->load->view('report/kasir_pj_report_excel', $data);
+    }
+
+    function excel() {
+        $this->load->view('report/excel');
     }
 
     function kasir_trans() {
@@ -77,10 +95,12 @@ class Report extends CI_Controller{
         }
         $this->load->view('report/kasir_order', $data);
     }
-    function kasir_rinci(){
+
+    function kasir_rinci() {
         $this->load->view('report/kasir_rinci');
     }
-    function kasir_rinci_report(){
+
+    function kasir_rinci_report() {
         $start = $this->input->post('start');
         $end = $this->input->post('end');
         $data['start'] = $start;
@@ -88,5 +108,5 @@ class Report extends CI_Controller{
         $data['report'] = $this->Report_m->kasir_rinci_db($start, $end);
         $this->load->view('report/kasir_rinci_report', $data);
     }
-    
+
 }

@@ -25,7 +25,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 // $config['base_url'] = 'http://localhost/RATU/';
 // $config['base_url'] = 'http://localhost/finance-ratuphotography/';
-$config['base_url'] = 'http://192.168.1.32/v31';
+//$config['base_url'] = 'http://192.168.1.32/v31';
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$host = $_SERVER['HTTP_HOST'];
+$host .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
+$config['base_url'] = $protocol . $host;
 /*
 |--------------------------------------------------------------------------
 | Index File

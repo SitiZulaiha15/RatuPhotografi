@@ -1,3 +1,14 @@
+<?php
+$name = "Laporan Return Penjualan " . $this->Etc->tgl($start) . " - " . $this->Etc->tgl($end);
+
+header("Content-type: application/octet-stream");
+
+header("Content-Disposition: attachment; filename=$name.xls");
+
+header("Pragma: no-cache");
+
+header("Expires: 0");
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -89,13 +100,7 @@
                                         </tr>
 
                                     </tbody>
-                                </table>
-                                <a class="float" title="cetak halaman" onclick="cetak();"> 
-                                    <i class="fa fa-print my-float" ></i>
-                                </a>                                
-                                <a class="float2" title="cetak excel" href="<?php echo site_url("Report/kasir_pj_report_excel/$start/$end"); ?>"> 
-                                    <i class="fa fa-file-excel-o my-float" ></i>
-                                </a>                                
+                                </table>                              
                                 <!--</div>-->
                                 <?php foreach ($kat as $k) { ?>
                                     <div class="col-md-12 notab">
@@ -221,57 +226,3 @@
         </div>
     </body>
 </html>
-<script type="text/javascript">
-    function cetak() {
-        print();
-    }
-    function cetak_excel(start,end) {
-        $.ajax({
-            url: "<?php echo site_url("Report/kasir_pj_report_excel"); ?>",
-            data: {start:start, end:end},
-            type: "POST",
-            success: function (data) {
-            },
-            error: function (a, b, c) {
-            }
-        })
-    }
-
-</script>
-<style>
-    @media print
-    {    
-        .float, .float *, .notab
-        {
-            display: none !important;
-        }
-    }
-    .float {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 40px;
-        right: 40px;
-        background-color: purple;
-        color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        box-shadow: 2px 2px 3px #999;
-    }
-    .float2 {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 40px;
-        right: 120px;
-        background-color: #009d28;
-        color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        box-shadow: 2px 2px 3px #999;
-    }
-
-    .my-float {
-        margin-top: 22px;
-    }
-</style>
