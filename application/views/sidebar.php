@@ -28,7 +28,8 @@ $sess = $this->session->userdata('staf_ratu_lv');
                 <li><a href="#"><i class="fa fa-users"></i><span>Member</span><span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul>
                         <li><a href="<?php echo site_url('Crud/m_list'); ?>">Data Member</a></li>
-                        <li><a href="<?php echo site_url('Crud/m_list_id/0'); ?>">Daftar</a></li>	            
+                        <li><a href="<?php echo site_url('Crud/m_list_id/0'); ?>">Daftar</a></li>
+                        
                     </ul>
                 </li>
                 <?php
@@ -48,7 +49,8 @@ $sess = $this->session->userdata('staf_ratu_lv');
                         <li><a href="<?php echo site_url('Crud/m_list'); ?>">Data Member</a></li>		            
                         <li><a href="<?php echo site_url('Crud/g_list'); ?>">Data Group</a></li>		            
                         <li><a href="<?php echo site_url('Crud/kat_list'); ?>">Data Kategori</a></li>		            
-                        <li><a href="<?php echo site_url('Crud/s_list'); ?>">Data Status Kerja</a></li>		            
+                        <li><a href="<?php echo site_url('Crud/s_list'); ?>">Data Status Kerja</a></li>	
+                        <li><a href="<?php echo site_url('Report/pelanggan'); ?>">Download Laporan Pelanggan</a></li> 
                     </ul>
                 </li>
                 <?php
@@ -61,6 +63,7 @@ $sess = $this->session->userdata('staf_ratu_lv');
                         <li><a href="<?php echo site_url('Stok/door_stok_in'); ?>">Bahan Baku Masuk</a></li>
                         <li><a href="<?php echo site_url('Report/limit_bb'); ?>">Limit Bahan Baku</a></li>
                         <li><a href="<?php echo site_url('Report/stok_now'); ?>">Data Bahan Baku</a></li>
+                                               
                     </ul>
                 </li>
 <!--                <li><a href="#"><i class="fa fa-book"></i><span>Report</span><span class="fa fa-angle-right" style="float: right"></span></a>
@@ -86,7 +89,8 @@ $sess = $this->session->userdata('staf_ratu_lv');
                         <li><a href="<?php echo site_url('Report/kasir_pj'); ?>">Return</a></li>
                         <li><a href="<?php echo site_url('Report/kasir_rinci'); ?>">Rincian Penjualan</a></li>		            
                         <li><a href="<?php echo site_url('Report/kasir_trans'); ?>">Transaksi</a></li>
-                        <li><a href="<?php echo site_url('Report/kinerja_period'); ?>">Data Kinerja Karyawan</a></li>	
+                        <li><a href="<?php echo site_url('Report/kinerja_period'); ?>">Data Kinerja Karyawan</a></li>
+                        <li><a href="<?php echo site_url('Report/hutang'); ?>" target="_blank">Hutang Pelanggan</a></li>
                     </ul>
                 </li>
                 <li id="menu-home" ><a href="<?php echo site_url('Kasir'); ?>"><i class="fa fa-money"></i><span>Kasir</span></a></li>

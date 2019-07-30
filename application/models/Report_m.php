@@ -115,6 +115,24 @@ class Report_m extends CI_Model {
         $data = $query->row();
         $jml = $data->jml;
         return $jml;
+        
+    }
+    
+    function hutang_db(){
+        $query = $this->db->query("Select transaksi.*, sum(bayar) as dp
+            from transaksi
+            join detail_bayar on detail_bayar.no_nota = transaksi.no_nota
+            where stat_byr=1 group by transaksi.no_nota order by tgl DESC");
+        return $query->result();
+    }
+    function barang_hutang($id_trans){
+        $query = $this->db->query("Select sum(round((hrg*jml)-diskon)) as total from item_trans
+            where id_trans='$id_trans'");
+        return $query->row();
+    }
+    function pelanggan_db(){
+         $query = $this->db->query("SELECT * FROM transaksi group by atas_nama order by atas_nama ASC");
+         return $query->result();
     }
 
 }

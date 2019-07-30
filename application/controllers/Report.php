@@ -30,6 +30,7 @@ class Report extends CI_Controller {
         $data['bb'] = $this->Report_m->stok_now_db();
         $this->load->view('report/stok', $data);
     }
+
     function stok_now_excel() {
         $data['bb'] = $this->Report_m->stok_now_db();
         $this->load->view('report/stok_excel', $data);
@@ -61,7 +62,7 @@ class Report extends CI_Controller {
         $this->load->view('report/kasir_pj_report', $data);
     }
 
-    function kasir_pj_report_excel($start,$end) {
+    function kasir_pj_report_excel($start, $end) {
 //        $start = $this->input->post('start');
 //        $end = $this->input->post('end');
         $data['start'] = $start;
@@ -111,6 +112,21 @@ class Report extends CI_Controller {
         $data['end'] = $end;
         $data['report'] = $this->Report_m->kasir_rinci_db($start, $end);
         $this->load->view('report/kasir_rinci_report', $data);
+    }
+
+    function hutang() {
+        $data['report'] = $this->Report_m->hutang_db();
+        $this->load->view("report/hutang", $data);
+    }
+
+    function hutang_excel() {
+        $data['report'] = $this->Report_m->hutang_db();
+        $this->load->view("report/hutang_excel", $data);
+    }
+
+    function pelanggan() {
+        $data['report'] = $this->Report_m->pelanggan_db();
+        $this->load->view('report/pelanggan', $data);
     }
 
 }
