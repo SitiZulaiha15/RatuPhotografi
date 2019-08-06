@@ -22,6 +22,7 @@
                 </div>
             </div>
         <?php } ?>
+        <div class='col-sm-12' style="height: 1000px"></div>
         <div class="clearfix"> </div>
     </div>
 </div><link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/assets/css/magnific-popup.css">

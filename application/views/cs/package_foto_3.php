@@ -171,6 +171,7 @@ function buatrp($angka) {
             // Get the element with id="defaultOpen" and click on it
             document.getElementById("defaultOpen").click();
         </script>
+        <div class='col-sm-12' style="height: 1000px"></div>
         <div class="clearfix"> </div>
     </div>
 

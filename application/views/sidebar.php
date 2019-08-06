@@ -1,3 +1,5 @@
+
+
 <!--<div class="copyrights">-->
 <!--    <p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>-->
 <!--</div>	-->
@@ -8,6 +10,7 @@
 <?php
 $sess = $this->session->userdata('staf_ratu_lv');
 ?>
+
 <div class="sidebar-menu">
     <div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo" ></span> 
             <!--<img id="logo" src="" alt="Logo"/>--> 

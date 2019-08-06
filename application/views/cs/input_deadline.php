@@ -52,6 +52,7 @@
             </div>
             <p><strong>Note:</strong> Click on the linked heading text to expand or collapse accordion panels.</p>
         </div>
+        <div class='col-sm-12' style="height: 1000px"></div>
         <div class="clearfix"> </div> 
     </div>
 

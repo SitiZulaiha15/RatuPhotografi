@@ -44,6 +44,7 @@ foreach ($list as $r) {
             </div>
         </div>
 <div class='col-sm-12' style="height: 500px"></div>
+        <div class='col-sm-12' style="height: 1000px"></div>
         <div class="clearfix"> </div>     
     </div>
 </div>
