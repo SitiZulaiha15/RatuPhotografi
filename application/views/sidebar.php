@@ -94,6 +94,8 @@ $sess = $this->session->userdata('staf_ratu_lv');
                         <li><a href="<?php echo site_url('Report/kasir_trans'); ?>">Transaksi</a></li>
                         <li><a href="<?php echo site_url('Report/kinerja_period'); ?>">Data Kinerja Karyawan</a></li>
                         <li><a href="<?php echo site_url('Report/hutang'); ?>" target="_blank">Hutang Pelanggan</a></li>
+                        <!--<li><a href="<?php echo site_url(''); ?>" target="_blank">Diskon</a></li>-->
+                        <li><a href="<?php echo site_url('pj-barang'); ?>">Laporan Penjualan</a></li>
                     </ul>
                 </li>
                 <li id="menu-home" ><a href="<?php echo site_url('Kasir'); ?>"><i class="fa fa-money"></i><span>Kasir</span></a></li>

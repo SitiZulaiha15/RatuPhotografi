@@ -133,4 +133,5 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array('Login_m', 'Frontline_m','Job_m','Kasir_m','Etc','Stok_m', 
-    'Report_m', 'Jurnal_m','Crud_m','Cart_m','Notif_m', 'Book_m');
+    'Report_m', 'Jurnal_m','Crud_m','Cart_m','Notif_m', 'Book_m',
+    'Report_x_m'=>'reportx');

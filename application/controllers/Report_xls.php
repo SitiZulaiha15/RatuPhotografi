@@ -11,9 +11,23 @@
  *
  * @author windows8.1
  */
-class Report_xls extends CI_Controller{
+class Report_xls extends CI_Controller {
+
     //put your code here
-    function hutang_pelanggan(){
-        
+    function penjualan() {
+        $this->load->view('report_upd/penjualan_barang');
     }
+    function pj_report() {
+        $start = "2019-01-03";
+        $end = "2019-01-03";
+//        $start = $this->input->post('start');
+//        $end = $this->input->post('end');
+        $data['trans'] = $this->reportx->pj_trans($start, $end);
+        $this->load->view('report_upd/penjualan_barang_report', $data);
+    }
+    function pj_report_xls($start, $end) {
+        $data['trans'] = $this->reportx->pj_trans($start, $end);
+        $this->load->view('report_upd/penjualan_barang_reportxls', $data);
+    }
+
 }
