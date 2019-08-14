@@ -1,5 +1,5 @@
 <?php
-$name = "Laporan Return Penjualan ";
+$name = "Laporan Penjualan " . $tgl;
 
 header("Content-type: application/octet-stream");
 
@@ -9,6 +9,7 @@ header("Pragma: no-cache");
 
 header("Expires: 0");
 ?>
+<h2><?php echo $name; ?></h2>
 <table class="table table-condensed" border="1">
     <thead>
 <!--        <tr>
@@ -93,7 +94,7 @@ header("Expires: 0");
                         </tbody>
                     </table>
                 </td>
-                <td class="text-center"><?php echo $total; ?></td>
+                <td class="text-center"><?php echo $this->Etc->rps($total); ?></td>
                 <td class="text-center" colspan="3">
                     <table class="table table-condensed" border="1">
     <!--                        <thead>

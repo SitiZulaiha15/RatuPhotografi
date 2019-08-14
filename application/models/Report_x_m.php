@@ -36,5 +36,19 @@ class Report_x_m extends CI_Model {
             from detail_bayar where no_nota='$no_nota'");
         return $query->result();
     }
+    function diskon_brg($start, $end){
+         $query = $this->db->query("Select * from item_trans i join transaksi t
+             on i.id_trans=t.id_trans
+             join barang b on b.kd_brg=i.kd_brg
+            where (stat_byr=2 or stat_byr=1) and tgl between '$start' and '$end' and diskon <> 0 group by b.kd_brg");
+        return $query->result();
+    }
+    function diskon_trans($start, $end, $id){
+         $query = $this->db->query("Select * from item_trans i join transaksi t
+             on i.id_trans=t.id_trans
+             join barang b on b.kd_brg=i.kd_brg
+            where (stat_byr=2 or stat_byr=1) and tgl between '$start' and '$end' and diskon <> 0 and i.kd_brg='$id'");
+        return $query->result();
+    }
 
 }

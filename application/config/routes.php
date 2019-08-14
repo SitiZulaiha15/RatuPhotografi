@@ -54,4 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['pj-barang'] = 'Report_xls/penjualan_barang';
+$route['pj'] = 'Report_xls/penjualan';
+$route['diskon'] = 'Report_xls/diskon';

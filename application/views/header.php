@@ -59,6 +59,10 @@
         <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/checkbox-bootstrap.css">
         <script type="text/javascript" src="<?php echo base_url() ?>/assets/js/bootstrap-notify.js"></script>
         <script src="<?php echo base_url('assets/maskMoney/jquery.maskMoney.min.js') ?>"></script>
+        
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/loading/loading.css">
+        
+        
         <?php
         $sess_lev = $this->session->userdata('staf_ratu_lv');
         $sess_id = $this->session->userdata('staf_ratu_id');

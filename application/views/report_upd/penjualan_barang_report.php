@@ -1,3 +1,4 @@
+<h2>Laporan Penjualan</h2>
 <table class="table table-condensed">
     <thead>
         <tr>
@@ -12,6 +13,15 @@
     <tbody>
         <?php
         $no = 1;
+        if (empty($trans)) {
+            ?>
+        <script>
+            alert("Tidak ada data yang ditampilkan");
+            location.reload();
+        </script>
+
+    <?php
+    } else {
         foreach ($trans as $t) {
             ?>
 
@@ -52,13 +62,14 @@
                                     <td class="text-center"><?php echo $this->Etc->rps($subtotal); ?></td>
                                     <td class="text-center"><?php echo $this->Etc->rps($untung); ?></td>
                                 </tr>
-                            <?php 
-                            $total += $subtotal;
-                            } ?>
+                                <?php
+                                $total += $subtotal;
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </td>
-                <td class="text-center"><?php echo $total; ?></td>
+                <td class="text-center"><?php echo $this->Etc->rps($total); ?></td>
                 <td class="text-center">
                     <table class="table table-condensed">
                         <thead>
@@ -69,16 +80,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                             <?php
+                            <?php
                             $bayar = $this->reportx->pj_bayar($t->no_nota);
                             foreach ($bayar as $r) {
                                 ?>
-                            <tr>
-                                <td class="text-center"><?php echo $this->Etc->tgl($r->tgl_byr); ?></td>
-                                <td class="text-center"><?php echo $this->Etc->rps($r->bayar); ?></td>
-                                <td class="text-center"><?php echo $this->Etc->m_byr($r->metode_byr); ?></td>
-                            </tr>
-                            <?php } ?>
+                                <tr>
+                                    <td class="text-center"><?php echo $this->Etc->tgl($r->tgl_byr); ?></td>
+                                    <td class="text-center"><?php echo $this->Etc->rps($r->bayar); ?></td>
+                                    <td class="text-center"><?php echo $this->Etc->m_byr($r->metode_byr); ?></td>
+                                </tr>
+        <?php } ?>
                         </tbody>
                     </table>
                 </td>
@@ -86,7 +97,36 @@
 
             <?php
         }
-        ?>
+    }
+    ?>
 
-    </tbody>
+</tbody>
 </table>
+<a class="float2" title="cetak excel" href="<?php echo site_url("Report_xls/pj_report_xls/$tgl/$tgl"); ?>"> 
+    <i class="fa fa-file-excel-o my-float" ></i>
+</a>  
+<style>
+    @media print
+    {    
+        .float, .float *, .notab
+        {
+            display: none !important;
+        }
+    }
+    .float2 {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 120px;
+        background-color: #009d28;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
+    }
+
+    .my-float {
+        margin-top: 22px;
+    }
+</style>
