@@ -1,5 +1,5 @@
 <?php
-$name = "Laporan Return Penjualan " . $this->Etc->tgl($start) . " - " . $this->Etc->tgl($end);
+$name = "Laporan Return Penjualan " . $this->Etc->tgl($start) . " s/d " . $this->Etc->tgl($end);
 
 header("Content-type: application/octet-stream");
 

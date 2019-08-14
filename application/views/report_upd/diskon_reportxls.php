@@ -1,5 +1,5 @@
 <?php
-$name = "Laporan Diskon " . $start . '-' . $end;
+$name = "Laporan Diskon " . $start . 's/d' . $end;
 
 header("Content-type: application/octet-stream");
 
