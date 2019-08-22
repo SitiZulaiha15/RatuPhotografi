@@ -93,7 +93,7 @@ $sess = $this->session->userdata('staf_ratu_lv');
                         <li><a href="<?php echo site_url('Report/kasir_rinci'); ?>">Rincian Penjualan</a></li>		            
                         <li><a href="<?php echo site_url('Report/kasir_trans'); ?>">Transaksi</a></li>
                         <li><a href="<?php echo site_url('Report/kinerja_period'); ?>">Data Kinerja Karyawan</a></li>
-                        <li><a href="<?php echo site_url('Report/hutang'); ?>" target="_blank">Hutang Pelanggan</a></li>
+                        <li><a href="<?php echo site_url('hutang'); ?>" target="_blank">Hutang Pelanggan</a></li>
                         <li><a href="<?php echo site_url('diskon'); ?>">Diskon</a></li>
                         <li><a href="<?php echo site_url('pj'); ?>">Laporan Penjualan</a></li>
                     </ul>

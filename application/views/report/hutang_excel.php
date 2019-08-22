@@ -47,7 +47,7 @@ header("Expires: 0");
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><strong>Laporan Hutang sampai <?php echo $this->Etc->tgl(date("Y-m-d")); ?></strong></h3>
+                                <h3 class="panel-title"><strong>Laporan Hutang periode <?php echo $this->Etc->tgl($start) . "-" . $this->Etc->tgl($end); ?></strong></h3>
                             </div>
                             <div class="panel-body">
                                 <!--<div class="table-responsive">-->
@@ -56,6 +56,7 @@ header("Expires: 0");
                                         <tr>
                                             <td><strong>No</strong></td>
                                             <td class="text-center"><strong>Nama Pelanggan</strong></td>
+                                            <td class="text-center"><strong>Nomor Telepon</strong></td>
                                             <td class="text-center"><strong>Tanggal</strong></td>
                                             <td class="text-center"><strong>Invoice/ No nota</strong></td>
                                             <td class="text-center"><strong>Nama Barang/ Jasa</strong></td>
@@ -75,6 +76,7 @@ header("Expires: 0");
                                             <tr>
                                                 <td><?php echo $no++; ?></td>
                                                 <td class="text-left"><?php echo $r->atas_nama; ?></td>
+                                                <td class="text-left"><?php echo $r->no_telp; ?></td>
                                                 <td class="text-right"><?php echo $this->Etc->tgl($r->tgl); ?></td>
                                                 <td class="text-right"><?php echo $r->no_nota; ?></td>
                                                 <td class="text-center"><?php foreach ($barang as $br){ echo $br->nm_brg."<br>"; } ?></td>

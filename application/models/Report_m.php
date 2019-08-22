@@ -118,11 +118,11 @@ class Report_m extends CI_Model {
         
     }
     
-    function hutang_db(){
+    function hutang_db($start, $end){
         $query = $this->db->query("Select transaksi.*, sum(bayar) as dp
             from transaksi
             join detail_bayar on detail_bayar.no_nota = transaksi.no_nota
-            where stat_byr=1 group by transaksi.no_nota order by tgl DESC");
+            where stat_byr=1 and date(tgl) between '$start' and '$end' group by transaksi.no_nota order by tgl DESC");
         return $query->result();
     }
     function barang_hutang($id_trans){

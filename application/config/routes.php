@@ -56,3 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['pj'] = 'Report_xls/penjualan';
 $route['diskon'] = 'Report_xls/diskon';
+$route['hutang'] = 'Report/form_hutang';

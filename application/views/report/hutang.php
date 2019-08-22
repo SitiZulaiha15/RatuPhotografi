@@ -36,7 +36,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><strong>Laporan Hutang Pelanggan sampai <?php echo $this->Etc->tgl(date("Y-m-d")); ?></strong></h3>
+                                <h3 class="panel-title"><strong>Laporan Hutang Pelanggan periode <?php echo $this->Etc->tgl($start) . "-" . $this->Etc->tgl($end); ?></strong></h3>
                             </div>
                             <div class="panel-body">
                                 <!--<div class="table-responsive">-->
@@ -45,6 +45,7 @@
                                         <tr>
                                             <td><strong>No</strong></td>
                                             <td class="text-center"><strong>Nama Pelanggan</strong></td>
+                                            <td class="text-center"><strong>Nomor telepon</strong></td>
                                             <td class="text-center"><strong>Tanggal</strong></td>
                                             <td class="text-center"><strong>Invoice/ No nota</strong></td>
                                             <td class="text-center"><strong>Nama Barang/ Jasa</strong></td>
@@ -64,9 +65,12 @@
                                             <tr>
                                                 <td><?php echo $no++; ?></td>
                                                 <td class="text-left"><?php echo $r->atas_nama; ?></td>
+                                                <td class="text-left"><?php echo $r->no_telp; ?></td>
                                                 <td class="text-right"><?php echo $this->Etc->tgl($r->tgl); ?></td>
                                                 <td class="text-right"><?php echo $r->no_nota; ?></td>
-                                                <td class="text-center"><?php foreach ($barang as $br){ echo $br->nm_brg."<br>"; } ?></td>
+                                                <td class="text-center"><?php foreach ($barang as $br) {
+                                            echo $br->nm_brg . "<br>";
+                                        } ?></td>
                                                 <td class="text-right"><?php echo "DP"; ?></td>
                                                 <td class="text-right"><?php echo $this->Etc->rps($t->total); ?>
                                                 <td class="text-right"><?php echo $this->Etc->rps($t->total - $r->dp); ?>
@@ -81,7 +85,7 @@
                                 <a class="float" title="cetak halaman" onclick="cetak();"> 
                                     <i class="fa fa-print my-float" ></i>
                                 </a>                                
-                                <a class="float2" title="cetak excel" href="<?php echo site_url("Report/hutang_excel"); ?>"> 
+                                <a class="float2" title="cetak excel" href="<?php echo site_url("Report/hutang_excel/$start/$end"); ?>"> 
                                     <i class="fa fa-file-excel-o my-float" ></i>
                                 </a> 
 

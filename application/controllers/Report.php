@@ -113,14 +113,24 @@ class Report extends CI_Controller {
         $data['report'] = $this->Report_m->kasir_rinci_db($start, $end);
         $this->load->view('report/kasir_rinci_report', $data);
     }
+    
+    function form_hutang(){
+        $this->load->view('report/hutang_form');
+    }
 
     function hutang() {
-        $data['report'] = $this->Report_m->hutang_db();
+        $start = $this->input->post('start');
+        $end = $this->input->post('end');
+        $data['report'] = $this->Report_m->hutang_db($start, $end);
+        $data['start'] = $start;
+        $data['end'] = $end;
         $this->load->view("report/hutang", $data);
     }
 
-    function hutang_excel() {
-        $data['report'] = $this->Report_m->hutang_db();
+    function hutang_excel($start, $end) {
+        $data['start'] = $start;
+        $data['end'] = $end;
+        $data['report'] = $this->Report_m->hutang_db($start, $end);
         $this->load->view("report/hutang_excel", $data);
     }
 
