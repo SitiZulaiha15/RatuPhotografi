@@ -4,7 +4,7 @@
         <div class="col-md-8 compose-right" id="loadArea">
             <div class="inbox-details-default">
                 <div class="inbox-details-heading">
-                    Laporan Dikson
+                    Laporan Dikson</h3>
                 </div>
                 <div class="inbox-details-body">
                     <form class="com-mail" id="formPeriode">

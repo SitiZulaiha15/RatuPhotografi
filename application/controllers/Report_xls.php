@@ -36,10 +36,10 @@ class Report_xls extends CI_Controller {
         $this->load->view('report_upd/diskon');
     }
     function diskon_report(){
-//        $start = "2019-01-03";
-//        $end = "2019-01-03";
-        $start = $this->input->post('start');
-        $end = $this->input->post('end');
+//       $start = "2018-07-03";
+//       $end = "2018-07-22";
+         $start = $this->input->post('start');
+         $end = $this->input->post('end');
         $data['barang'] = $this->reportx->diskon_brg($start, $end);
         $data['start'] = $start;
         $data['end'] = $end;

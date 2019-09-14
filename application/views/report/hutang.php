@@ -36,7 +36,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><strong>Laporan Hutang Pelanggan periode <?php echo $this->Etc->tgl($start) . "-" . $this->Etc->tgl($end); ?></strong></h3>
+                                <h3 class="panel-title"><strong>Laporan Hutang Pelanggan periode <?php echo $this->Etc->tgl($start) . "-" .$this->Etc->tgl($end); ?></strong></h3>
                             </div>
                             <div class="panel-body">
                                 <!--<div class="table-responsive">-->
@@ -57,7 +57,8 @@
                                     <tbody>
                                         <?php
                                         $no = 1;
-
+                                        $total  = array();
+                                        $hutang = array();
                                         foreach ($report as $r) {
                                             $t = $this->Report_m->barang_hutang($r->id_trans);
                                             $barang = $this->Kasir_m->barang_db($r->id_trans);
@@ -73,12 +74,26 @@
                                         } ?></td>
                                                 <td class="text-right"><?php echo "DP"; ?></td>
                                                 <td class="text-right"><?php echo $this->Etc->rps($t->total); ?>
-                                                <td class="text-right"><?php echo $this->Etc->rps($t->total - $r->dp); ?>
+                                                <td class="text-right"><?php echo $this->Etc->rps($t->total - $r->dp);
+                                                array_push($total, $t->total);
+                                                array_push($hutang,$t->total - $r->dp);
+
+
+                                                 ?>
+
                                                 </td>
                                             </tr>
                                             <?php
                                         }
                                         ?>
+                                        <tr>
+                                            <td colspan="7">Grand Total Pesanan:</td>
+                                            <td colspan="2"><?php echo $this->Etc->rps(array_sum($total));?></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="7">Grand Hutang:</td>
+                                            <td colspan="2"><?php echo $this->Etc->rps(array_sum($hutang));?></td>
+                                        </tr>
 
                                     </tbody>
                                 </table>

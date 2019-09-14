@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -36,6 +37,7 @@ class Report_x_m extends CI_Model {
             from detail_bayar where no_nota='$no_nota'");
         return $query->result();
     }
+    
     function diskon_brg($start, $end){
          $query = $this->db->query("Select * from item_trans i join transaksi t
              on i.id_trans=t.id_trans

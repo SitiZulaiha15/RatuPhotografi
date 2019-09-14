@@ -1,4 +1,4 @@
-<h2>Laporan Diskon</h2>
+<h2>Laporan Diskon periode <?php echo $this->Etc->tgl($start) . "-" .$this->Etc->tgl($end); ?></h2>
 <table class="table table-condensed">
     <thead>
         <tr>
@@ -7,22 +7,25 @@
             <td class="text-center" ><strong>Harga</strong></td>
             <td class="text-center" ><strong>Transaksi</strong></td>
 <!--            <td class="text-center" ><strong>Tanggal</strong></td>
-            <td class="text-center" ><strong>Diskon</strong></td>-->
-            <td class="text-center" ><strong>Total Diskon</strong></td>
-        </tr>
-    </thead>
-    <tbody>
-        <?php 
-        $no=1;
-        if (empty($barang)) {
-            ?>
+    <td class="text-center" ><strong>Diskon</strong></td>-->
+    <td class="text-center" ><strong>Total Diskon</strong></td>
+</tr>
+</thead>
+<tbody>
+    <?php 
+    $no=1;
+    if (empty($barang)) {
+        ?>
         <script>
             alert("Tidak ada data yang ditampilkan");
             location.reload();
         </script>
         <?php
     } else {
-        foreach ($barang as $b) { ?>
+        $totals = array();
+        foreach ($barang as $b) { 
+            $total = 0;
+            ?>
             <tr>
                 <td class="text-center"><?php echo $no++ ?></td>
                 <td class="text-center"><?php echo $b->nm_brg ?></td>
@@ -41,23 +44,33 @@
                             <?php 
                             $trans = $this->reportx->diskon_trans($start, $end, $b->kd_brg);
                             $t_diskon = 0;
-                            foreach ($trans as $t) { ?>
-                                <tr>
-                                    <td class="text-center"><?php echo $this->Etc->tgl($t->tgl) ?></td>
-                                    <td class="text-center"><?php echo $t->jml ?></td>
-                                    <td class="text-center"><?php echo $this->Etc->rps($t->diskon) ?></td>
-                                </tr>
+                            foreach ($trans as $t) {
+                               ?>
+                               <tr>
+                                <td class="text-center"><?php echo $this->Etc->tgl($t->tgl) ?></td>
+                                <td class="text-center"><?php echo $t->jml ?></td>
+                                <td class="text-center"><?php echo $this->Etc->rps($t->diskon) ?></td>
+                            </tr>
                             <?php 
                             $t_diskon += $t->diskon;
-                            } ?>
-                        </tbody>
-                    </table>
-                </td>
-                <td class="text-center"><?php echo $this->Etc->rps( $t_diskon) ?></td>
-            </tr>
-        <?php }
-    }?>
-    </tbody>
+                        } ?>
+                    </tbody>
+                </table>
+            </td>
+            <td class="text-center"><?php echo $this->Etc->rps( $t_diskon);
+            array_push($totals, $t_diskon);?></td>
+        </tr>
+    <?php }
+}?>
+<tr>
+    <td colspan="4" class="text-bold">
+        <h3>Grand Total Diskon</h3>
+    </td>
+    <td class='text-right'>
+        <?php echo  $this->Etc->rps(array_sum($totals)) ?>
+    </td>
+</tr>
+</tbody>
 </table>
 <a class="float2" title="cetak excel" href="<?php echo site_url("Report_xls/diskon_report_xls/$start/$end"); ?>"> 
     <i class="fa fa-file-excel-o my-float" ></i>
